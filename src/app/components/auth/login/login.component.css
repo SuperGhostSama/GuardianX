@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.login-form {
+    width: 500px;
+    max-width: 100%;
+    background: linear-gradient(to right, #2980b9, #6dd5ed);
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+}
+
+.forgot-password {
+    color: #fff;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa; /* Light gray on hover */
+    border-color: #f8f9fa;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
