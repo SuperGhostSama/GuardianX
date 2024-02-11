@@ -1,11 +1,5 @@
-import { Role } from '../../../modal/enums/role.enum';
+import { Role } from "src/app/modal/entities/role.interface";
 
 export interface AuthenticationResponseDTO {
     token: string;
-    userId: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    role: Role; 
-    tokens: number;
 }

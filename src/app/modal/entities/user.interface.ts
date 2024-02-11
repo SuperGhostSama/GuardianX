@@ -1,7 +1,7 @@
-import { Role } from '../enums/role.enum';
+import { Role } from '../entities/role.interface';
 
 export interface User {
-  id?: number;  // '?' indicates it's an optional property
+  id?: number;
   firstName: string;
   lastName: string;
   email: string;
