@@ -1,4 +1,4 @@
-import { AuthorityEnum } from '../../../modal/enums/authority.enum';
+import { AuthorityEnum } from '../../modal/enums/authority.enum';
 
 export interface RoleReauestDTO {
     name: string;
