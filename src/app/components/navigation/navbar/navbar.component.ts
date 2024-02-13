@@ -10,6 +10,15 @@ export class NavbarComponent {
 
   constructor(private router: Router) {}
   
+  getRole(): string | null {
+    return localStorage.getItem('role');
+  }
+
+  hasAuthority(): boolean {
+    const role = this.getRole();
+    return this.isLoggedIn() && (role === 'ADMIN' || role === 'SUPER_ADMIN');
+  }
+
   isLoggedIn(): boolean {
     return localStorage.getItem('authToken') !== null;
   }
