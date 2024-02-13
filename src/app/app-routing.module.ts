@@ -5,6 +5,8 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { authGuard } from './guard/auth/auth.guard';
 import { RoleComponent } from './components/dashboard/role/role.component';
 import { UserComponent } from './components/dashboard/user/user.component';
+import { PagenotfoundComponent } from './components/errors/pagenotfound/pagenotfound.component';
+import { adminGuard } from './guard/admin/admin.guard';
 
 const routes: Routes = [
   {
@@ -21,14 +23,20 @@ const routes: Routes = [
     path : 'role',
     component : RoleComponent ,
     title : 'Roles Page',
-    canActivate: [authGuard]
+    canActivate: [authGuard , adminGuard]
   },
   {
     path : 'profile',
     component : UserComponent ,
     title : 'User Profile Page',
     canActivate: [authGuard]
-  }
+  },
+  {
+    // Wildcard route for handling unknown URLs
+    path: '**',
+    component: PagenotfoundComponent,
+    title: 'Page Not Found',
+  },
 ];
 
 @NgModule({

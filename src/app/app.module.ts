@@ -1,3 +1,5 @@
+;
+import { PagenotfoundComponent } from './components/errors/pagenotfound/pagenotfound.component';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,7 +24,8 @@ import { AuthInterceptor } from './interceptor/auth/auth.interceptor';
     NavbarComponent,
     SidebarComponent,
     RoleComponent,
-    UserComponent
+    UserComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

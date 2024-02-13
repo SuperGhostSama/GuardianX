@@ -39,7 +39,7 @@ export class LoginComponent {
             localStorage.setItem('authorities', JSON.stringify(authorityNames));
 
             // Redirect the user to /role
-            this.router.navigate(['/role']);
+            this.router.navigate(['/profile']);
         },
         (error) => {
           // Handle authentication error
