@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { TasksComponent } from './components/dashboard/tasks/tasks.component';
-import { authGuard } from './guard/auth.guard';
+import { authGuard } from './guard/auth/auth.guard';
+import { RoleComponent } from './components/dashboard/role/role.component';
 
 const routes: Routes = [
   {
@@ -17,9 +17,9 @@ const routes: Routes = [
     title : 'Register Page'
   },
   {
-    path : 'tasks',
-    component : TasksComponent ,
-    title : 'Tasks Page',
+    path : 'role',
+    component : RoleComponent ,
+    title : 'Roles Page',
     canActivate: [authGuard]
   }
 ];

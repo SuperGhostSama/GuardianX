@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
-import { TasksComponent } from './components/dashboard/tasks/tasks.component';
-import { CookieService } from 'ngx-cookie-service';
+import { RoleComponent } from './components/dashboard/role/role.component';
+import { UserComponent } from './components/dashboard/user/user.component';
+import { AuthInterceptor } from './interceptor/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import { CookieService } from 'ngx-cookie-service';
     RegisterComponent,
     NavbarComponent,
     SidebarComponent,
-    TasksComponent
+    RoleComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,9 @@ import { CookieService } from 'ngx-cookie-service';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     FormsModule,
   ],
-  providers: [CookieService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

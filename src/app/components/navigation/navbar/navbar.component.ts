@@ -11,11 +11,11 @@ export class NavbarComponent {
   constructor(private router: Router) {}
   
   isLoggedIn(): boolean {
-    return sessionStorage.getItem('userId') !== null;
+    return localStorage.getItem('authToken') !== null;
   }
 
   logout(): void {
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 }

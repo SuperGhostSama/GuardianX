@@ -8,9 +8,8 @@ import { Subject } from 'rxjs';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnDestroy {
-  firstName = '';
-  lastName = '';
+export class RegisterComponent {
+  name = '';
   email = '';
   password = '';
   private ngUnsubscribe: Subject<void> = new Subject<void>();
@@ -20,13 +19,8 @@ export class RegisterComponent implements OnDestroy {
   ) {}
 
   onSubmit() {
-  }
-  
-  
-    
 
-  ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
   }
+
 }
+  

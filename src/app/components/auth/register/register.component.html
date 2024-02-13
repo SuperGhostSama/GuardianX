@@ -3,19 +3,11 @@
     <h2 class="text-light text-center mb-4">Create Your Account</h2>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
       <div class="form-group">
-        <label for="firstName" class="text-light">First Name</label>
-        <input type="text" class="form-control bg-light text-muted" id="firstName" name="firstName" placeholder="Enter your first name" [(ngModel)]="firstName" required #firstNameInput="ngModel">
-        <!-- Display error message if first name is not provided -->
-        <div *ngIf="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)" class="text-danger">
-          <div *ngIf="firstNameInput.errors?.['required']">First name is required.</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="lastName" class="text-light">Last Name</label>
-        <input type="text" class="form-control bg-light text-muted" id="lastName" name="lastName" placeholder="Enter your last name" [(ngModel)]="lastName" required #lastNameInput="ngModel">
+        <label for="name" class="text-light">Name</label>
+        <input type="text" class="form-control bg-light text-muted" id="name" name="name" placeholder="Enter your name" [(ngModel)]="name" required #nameInput="ngModel">
         <!-- Display error message if last name is not provided -->
-        <div *ngIf="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)" class="text-danger">
-          <div *ngIf="lastNameInput.errors?.['required']">Last name is required.</div>
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="text-danger">
+          <div *ngIf="nameInput.errors?.['required']">Last name is required.</div>
         </div>
       </div>
       <div class="form-group">
