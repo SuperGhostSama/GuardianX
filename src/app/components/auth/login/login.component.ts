@@ -25,14 +25,21 @@ export class LoginComponent {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (authenticationResponse) => {
-          // Authentication successful, perform necessary actions
-          console.log('Authentication successful:', authenticationResponse);
+            // Authentication successful, perform necessary actions
+            console.log('Authentication successful:', authenticationResponse);
 
-          // Store the authentication token in localStorage
-          localStorage.setItem('authToken', authenticationResponse.token);
+            localStorage.setItem('authToken', authenticationResponse.token);
 
-          // Redirect the user to /dashboard or any desired route
-          this.router.navigate(['/role']);
+            localStorage.setItem('name', authenticationResponse.name);
+            localStorage.setItem('email', authenticationResponse.email);
+            localStorage.setItem('role', authenticationResponse.role.name);
+
+            // Extract and store authority names in local storage
+            const authorityNames = authenticationResponse.role.authorities.map((authority: any) => authority.name);
+            localStorage.setItem('authorities', JSON.stringify(authorityNames));
+
+            // Redirect the user to /role
+            this.router.navigate(['/role']);
         },
         (error) => {
           // Handle authentication error

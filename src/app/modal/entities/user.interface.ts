@@ -1,11 +1,11 @@
 import { Role } from '../entities/role.interface';
 
 export interface User {
-  id?: number;
-  firstName: string;
-  lastName: string;
+  id: number;
+  name: string;
   email: string;
-  token: number;
   password: string;
+  created_at: Date;
+  updated_at: Date;
   role: Role;
 }
