@@ -7,6 +7,7 @@ import { RoleComponent } from './components/dashboard/role/role.component';
 import { UserComponent } from './components/dashboard/user/user.component';
 import { PagenotfoundComponent } from './components/errors/pagenotfound/pagenotfound.component';
 import { adminGuard } from './guard/admin/admin.guard';
+import { RoleResolver } from './resolver/role/role.resolver';
 
 const routes: Routes = [
   {
@@ -23,7 +24,10 @@ const routes: Routes = [
     path : 'role',
     component : RoleComponent ,
     title : 'Roles Page',
-    canActivate: [authGuard , adminGuard]
+    canActivate: [authGuard , adminGuard],
+    resolve: {
+      roles: RoleResolver 
+    }
   },
   {
     path : 'profile',
