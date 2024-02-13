@@ -6,6 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        <!-- TEST -->
+        <li class="nav-item" *ngIf="isLoggedIn() && isUser()">
+          <a class="nav-link" >ONLY USER CAN SEE THIS</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn() && isAdmin()">
+          <a class="nav-link" >ONLY ADMIN CAN SEE THIS</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn() && isSuperAdmin()">
+          <a class="nav-link" >ONLY SUPER ADMIN CAN SEE THIS</a>
+        </li>
 
         <!-- Display "Roles" link if user is logged in and has a specific role -->
         <li class="nav-item" *ngIf="isLoggedIn() && hasAuthority()">

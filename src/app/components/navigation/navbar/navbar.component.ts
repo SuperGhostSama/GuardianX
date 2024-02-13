@@ -19,6 +19,22 @@ export class NavbarComponent {
     return this.isLoggedIn() && (role === 'ADMIN' || role === 'SUPER_ADMIN');
   }
 
+  isUser(): boolean {
+    const role = this.getRole();
+    return this.isLoggedIn() && role === 'USER';
+  
+  }
+
+  isAdmin(): boolean {
+    const role = this.getRole();
+    return this.isLoggedIn() && role === 'ADMIN';
+  }
+  
+  isSuperAdmin(): boolean {
+    const role = this.getRole();
+    return this.isLoggedIn() && role === 'SUPER_ADMIN';
+  }
+
   isLoggedIn(): boolean {
     return localStorage.getItem('authToken') !== null;
   }
